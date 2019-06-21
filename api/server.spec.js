@@ -10,4 +10,12 @@ describe("server", () => {
         .expect(200);
     });
   });
+
+  describe("get /games", () => {
+    it("responds with 200 OK and a list of games", () => {
+      return supertest(server)
+        .get("/games")
+        .expect(200, []);
+    });
+  });
 });
