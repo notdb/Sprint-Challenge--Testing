@@ -15,7 +15,7 @@ describe("server", () => {
     it("responds with 200 OK and a list of games", () => {
       return supertest(server)
         .get("/games")
-        .expect(200, []);
+        .expect(200);
     });
   });
 });
