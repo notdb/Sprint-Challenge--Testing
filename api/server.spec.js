@@ -19,17 +19,7 @@ describe("server", () => {
     });
   });
 
-  describe("post /games", () => {
-    it("responds with 201 OK and the game added", () => {
-      let game = {
-        title: "Dota Underlords",
-        genre: "Auto Chess",
-        releaseYear: 2019
-      };
-      return supertest(server)
-        .post("/games", game)
-        .expect(201);
-    });
+  describe("post /games error", () => {
     it("responds with 422 because no title", () => {
       let game = {
         genre: "Auto Chess",
@@ -37,6 +27,18 @@ describe("server", () => {
       };
       return supertest(server).post("/games", game);
       expect(422);
+    });
+  });
+
+  describe("post /games", () => {
+    it("responds with 201 OK and the game added", () => {
+      let game = {
+        title: "Dota Underlords",
+        genre: "Auto Chess",
+        releaseYear: 2019
+      };
+      return supertest(server).post("/games", game);
+      expect(201);
     });
   });
 });
